@@ -1,6 +1,6 @@
-# **Project Requirements Document: Trivia.io**
+# **Project Requirements Document: Quizzlio**
 
-The following table outlines the detailed functional requirements of the **Trivia.io** multiplayer trivia game.
+The following table outlines the detailed functional requirements of the **Quizzlio** multiplayer trivia game.
 
 | Requirement ID | Description                      | User Story                                                                                              | Expected Behavior/Outcome                                                                                                                                           |
 |----------------|----------------------------------|---------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
