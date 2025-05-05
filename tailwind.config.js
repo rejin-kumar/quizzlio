@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['var(--font-open-sans)', 'sans-serif'],
+        pacifico: ['var(--font-pacifico)', 'cursive'],
       },
       colors: {
         background: 'var(--background)',

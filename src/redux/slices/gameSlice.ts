@@ -123,6 +123,21 @@ export const gameSlice = createSlice({
     setQuestionResults: (state, action: PayloadAction<QuestionResult>) => {
       state.status = 'results';
       state.questionResults = action.payload;
+      
+      // Update player scores in the players array based on the latest leaderboard data
+      if (action.payload.leaderboard && action.payload.leaderboard.length > 0) {
+        const updatedPlayers = state.players.map(player => {
+          const leaderboardEntry = action.payload.leaderboard.find(entry => entry.playerId === player.id);
+          if (leaderboardEntry) {
+            return {
+              ...player,
+              score: leaderboardEntry.score
+            };
+          }
+          return player;
+        });
+        state.players = updatedPlayers;
+      }
     },
     setGameEnded: (state, action: PayloadAction<{ leaderboard: { rank: number; playerId: string; playerName: string; score: number; }[] }>) => {
       state.status = 'ended';

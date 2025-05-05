@@ -34,7 +34,7 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br flex flex-col items-center justify-center p-4">
-      <h1 className="text-5xl font-bold text-white mb-12">quizzlio</h1>
+      <h1 className="text-6xl font-pacifico text-white mb-24">Quizzlio</h1>
       <div className="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-4xl">
         <div className="p-6">
           {error && (
@@ -102,7 +102,7 @@ const HomePage: React.FC = () => {
         </div>
       </div>
       
-      <div className=" p-4 text-center w-full max-w-4xl mt-4 rounded-lg">
+      <div className=" p-4 text-center w-full max-w-4xl mt-12 rounded-lg">
         <p className="text-white">
           © {new Date().getFullYear()} Quizzlio - The Multiplayer Trivia Game
         </p>
