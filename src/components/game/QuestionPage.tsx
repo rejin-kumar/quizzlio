@@ -62,7 +62,7 @@ const QuestionPage: React.FC = () => {
     return (
       <MainLayout>
         <div className="p-6 text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-4 border-indigo-500 border-t-transparent mx-auto"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent mx-auto"></div>
           <p className="mt-4 text-gray-600">Loading question...</p>
         </div>
       </MainLayout>
@@ -130,7 +130,7 @@ const QuestionPage: React.FC = () => {
           {/* Question progress bar */}
           <div className="w-full bg-gray-200 rounded-full h-2.5">
             <div
-              className="bg-indigo-600 h-2.5 rounded-full transition-all duration-500 ease-linear"
+              className="bg-blue-600 h-2.5 rounded-full transition-all duration-500 ease-linear"
               style={{ width: `${progress}%` }}
             ></div>
           </div>
@@ -153,7 +153,7 @@ const QuestionPage: React.FC = () => {
         </div>
 
         <div className="mb-4">
-          <span className="inline-block bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full mr-2">
+          <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full mr-2">
             {category}
           </span>
           <span className="inline-block bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
@@ -175,7 +175,7 @@ const QuestionPage: React.FC = () => {
               disabled={hasSubmitted}
               className={`p-4 border rounded-lg text-left transition-all ${
                 selectedAnswer === answer
-                  ? 'border-indigo-500 bg-indigo-50 text-indigo-700'
+                  ? 'border-blue-500 bg-blue-50 text-blue-700'
                   : `${getAnswerBorderColor()} hover:border-gray-400 hover:bg-gray-50`
               } ${hasSubmitted ? 'cursor-not-allowed opacity-60' : ''}`}
             >

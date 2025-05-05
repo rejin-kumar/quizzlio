@@ -13,8 +13,6 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var (--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -34,7 +32,6 @@ body {
     )
     fixed;
   color: rgb(var(--foreground-rgb));
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Animation styles */

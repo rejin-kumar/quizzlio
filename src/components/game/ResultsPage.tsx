@@ -25,7 +25,7 @@ const ResultsPage: React.FC = () => {
     return (
       <MainLayout>
         <div className="p-6 text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-4 border-indigo-500 border-t-transparent mx-auto"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent mx-auto"></div>
           <p className="mt-4 text-gray-600">Loading results...</p>
         </div>
       </MainLayout>
@@ -117,7 +117,7 @@ const ResultsPage: React.FC = () => {
                   className="px-4 py-3 sm:px-6 flex items-center justify-between"
                 >
                   <div className="flex items-center">
-                    <span className="bg-indigo-100 text-indigo-700 h-6 w-6 rounded-full flex items-center justify-center font-medium mr-3">
+                    <span className="bg-blue-100 text-blue-700 h-6 w-6 rounded-full flex items-center justify-center font-medium mr-3">
                       {player.rank}
                     </span>
                     <span className="text-gray-900 font-medium">

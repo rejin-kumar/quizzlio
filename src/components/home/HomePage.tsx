@@ -34,7 +34,7 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br flex flex-col items-center justify-center p-4">
-      <h1 className="text-5xl font-bold text-white mb-6">quizzlio</h1>
+      <h1 className="text-5xl font-bold text-white mb-12">quizzlio</h1>
       <div className="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-4xl">
         <div className="p-6">
           {error && (
@@ -62,7 +62,7 @@ const HomePage: React.FC = () => {
 
           {status === 'creating' || status === 'joining' ? (
             <div className="text-center py-8">
-              <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-indigo-500 border-t-transparent"></div>
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent"></div>
               <p className="mt-4 text-gray-600">
                 {status === 'creating' ? 'Creating game...' : 'Joining game...'}
               </p>
@@ -74,7 +74,7 @@ const HomePage: React.FC = () => {
                   onClick={() => setActiveTab('join')}
                   className={`flex-1 py-2 font-medium ${
                     activeTab === 'join'
-                      ? 'border-b-2 border-indigo-600 text-indigo-600'
+                      ? 'border-b-2 border-blue-600 text-blue-600'
                       : 'border-b border-gray-300 text-gray-500'
                   }`}
                 >
@@ -84,7 +84,7 @@ const HomePage: React.FC = () => {
                   onClick={() => setActiveTab('create')}
                   className={`flex-1 py-2 font-medium ${
                     activeTab === 'create'
-                      ? 'border-b-2 border-indigo-600 text-indigo-600'
+                      ? 'border-b-2 border-blue-600 text-blue-600'
                       : 'border-b border-gray-300 text-gray-500'
                   }`}
                 >

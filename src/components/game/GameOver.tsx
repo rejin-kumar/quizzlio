@@ -18,7 +18,7 @@ const GameOver: React.FC = () => {
     return (
       <MainLayout>
         <div className="p-6 text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-4 border-indigo-500 border-t-transparent mx-auto"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent mx-auto"></div>
           <p className="mt-4 text-gray-600">Loading final results...</p>
         </div>
       </MainLayout>

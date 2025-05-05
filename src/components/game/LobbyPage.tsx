@@ -119,7 +119,7 @@ const LobbyPage: React.FC = () => {
                         <span className="text-lg">
                           {player.name}
                           {player.isAdmin && (
-                            <span className="ml-2 text-xs bg-indigo-100 text-indigo-800 py-1 px-2 rounded-full">
+                            <span className="ml-2 text-xs bg-blue-100 text-blue-800 py-1 px-2 rounded-full">
                               Admin
                             </span>
                           )}
