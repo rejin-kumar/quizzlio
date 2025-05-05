@@ -1,117 +1,98 @@
-# 🎮 Quizzlio
+# Quizzlio - Multiplayer Trivia Game
 
-**Quizzlio** is a real-time multiplayer trivia game inspired by **Skribbl.io**, where players compete by answering questions as quickly as possible. The faster you answer correctly, the higher your score!
+Quizzlio is a real-time multiplayer trivia game built with Next.js, Socket.IO, and Redux. Players can create and join game sessions, answer trivia questions, and compete for the highest score.
 
----
+## Features
 
-## 🚀 Features
+- **Real-time Multiplayer**: Play with up to 10 players simultaneously
+- **Game Sessions**: Create or join game sessions using unique game codes
+- **Customizable Settings**: Configure questions, categories, difficulty, and time limits
+- **Dynamic Scoring**: Score points based on how quickly correct answers are submitted 
+- **Live Leaderboard**: See real-time rankings after each question
+- **Responsive Design**: Play on any device with a clean, modern UI
 
-- 👥 Multiplayer game sessions (up to 10 players)
-- 🧠 Real-time trivia powered by [Open Trivia DB](https://opentdb.com/)
-- ⏱️ Timed questions and speed-based scoring
-- 📊 Live leaderboard between rounds
-- 🎨 Sleek UI with minimalistic gradients and subtle animations
-- ⚙️ Admin controls: set number of questions, category, time per question, and number of rounds
+## Tech Stack
 
----
+- **Frontend**: 
+  - Next.js (React)
+  - TypeScript
+  - Redux Toolkit for state management
+  - TailwindCSS for styling
+  - Socket.IO Client for real-time communication
 
-## 📦 Tech Stack
+- **Backend**: 
+  - Express.js
+  - Socket.IO for WebSocket communication
+  - Open Trivia DB API for trivia questions
 
-- **Frontend**: React, TailwindCSS
-- **Backend**: Node.js (Express or similar), WebSocket (e.g., Socket.IO)
-- **API**: [Open Trivia DB](https://opentdb.com/api_config.php)
-- **State Management**: Context API or Redux
-- **Hosting**: Vercel / Netlify (Frontend), Render / Railway / Heroku (Backend)
-
----
-
-## 🛠️ Setup Instructions
+## Getting Started
 
 ### Prerequisites
-- Node.js (v18+ recommended)
+
+- Node.js (v18 or higher)
 - npm or yarn
 
-### Clone the Repo
+### Installation
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/yourusername/quizzlio.git
+   cd quizzlio
+   ```
+
+2. Install dependencies
+   ```bash
+   npm install
+   ```
+
+### Running the Application
+
+You can run both the frontend and backend simultaneously using:
+
 ```bash
-git clone https://github.com/your-username/quizzlio.git
-cd quizzlio
+npm run dev:all
 ```
 
-### Install Dependencies
-```bash
-# For frontend
-cd client
-npm install
+Or run them separately:
 
-# For backend
-cd ../server
-npm install
-```
+- Frontend: `npm run dev`
+- Backend: `npm run server` (or `npm run dev:server` for development with auto-reload)
 
-### Run Locally
-```bash
-# In one terminal for backend
-cd server
-npm run dev
+The application will be available at:
+- Frontend: http://localhost:3000
+- Backend: http://localhost:5000
 
-# In another terminal for frontend
-cd client
-npm start
-```
+## How to Play
 
----
+1. **Create a Game**:
+   - Click "Create Game"
+   - Enter your name
+   - Configure game settings (questions, category, difficulty, time)
+   - Share the generated game code with friends
 
-## 🧪 Project Structure
+2. **Join a Game**:
+   - Click "Join Game"
+   - Enter your name and the 4-character game code
+   - Wait for the admin to start the game
 
-```plaintext
-trivia.io/
-├── client/              # React frontend
-│   ├── components/
-│   ├── pages/
-│   └── ...
-├── server/              # Node.js backend with WebSocket
-│   ├── routes/
-│   ├── sockets/
-│   └── ...
-├── PRD.md               # Functional Requirements
-├── README.md
-└── ...
-```
+3. **During Gameplay**:
+   - Answer questions as quickly as possible
+   - Correct answers earn points based on remaining time
+   - View results and leaderboard after each question
+   - Final results and winner announced at the end
 
----
+## Game Configuration Options
 
-## 🧠 Gameplay Overview
+- **Number of Questions**: 1-50
+- **Category**: Select from various trivia categories
+- **Difficulty**: Easy, Medium, Hard, or Any
+- **Question Type**: Multiple Choice, True/False, or Any
+- **Time per Question**: 5-60 seconds
 
-1. **Admin** creates a game session, sets question count, round count, and time per question.
-2. **Players** join using a game code.
-3. Once started, questions are displayed one-by-one.
-4. Players race to answer quickly — faster answers score more!
-5. After each round, a leaderboard updates in real-time.
-6. At the end, final scores are displayed.
+## License
 
----
+This project is licensed under the MIT License.
 
-## 🤝 Contributing
+## Acknowledgments
 
-Contributions are welcome! Here's how to get started:
-
-1. Fork the repo
-2. Create your feature branch: `git checkout -b feature/your-feature-name`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin feature/your-feature-name`
-5. Open a pull request
-
----
-
-## 📄 License
-
-MIT License. See `LICENSE` file for details.
-
----
-
-## 🌐 Acknowledgments
-
-- [Open Trivia DB](https://opentdb.com/)
-- [Skribbl.io](https://skribbl.io/) — for multiplayer game inspiration
-- [TailwindCSS](https://tailwindcss.com/)
-- [Socket.IO](https://socket.io/)
+- [Open Trivia Database](https://opentdb.com/) for providing the trivia questions API
