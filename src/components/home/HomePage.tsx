@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import JoinGame from '@/components/home/JoinGame';
@@ -9,6 +9,12 @@ const HomePage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'join' | 'create'>('join');
   const [isConnecting, setIsConnecting] = useState(false);
   const { error, status } = useSelector((state: RootState) => state.game as any);
+  
+  // Refs and state for height animation
+  const contentRef = useRef<HTMLDivElement>(null);
+  const joinRef = useRef<HTMLDivElement>(null);
+  const createRef = useRef<HTMLDivElement>(null);
+  const [contentHeight, setContentHeight] = useState<number | undefined>(undefined);
 
   // Connect to socket server on component mount
   useEffect(() => {
@@ -31,6 +37,29 @@ const HomePage: React.FC = () => {
       // The socket will be managed by the game components
     };
   }, []);
+
+  // Update content height when tab changes
+  useEffect(() => {
+    if (activeTab === 'join' && joinRef.current) {
+      setContentHeight(joinRef.current.scrollHeight);
+    } else if (activeTab === 'create' && createRef.current) {
+      setContentHeight(createRef.current.scrollHeight);
+    }
+  }, [activeTab]);
+
+  // Handle window resize to update height
+  useEffect(() => {
+    const handleResize = () => {
+      if (activeTab === 'join' && joinRef.current) {
+        setContentHeight(joinRef.current.scrollHeight);
+      } else if (activeTab === 'create' && createRef.current) {
+        setContentHeight(createRef.current.scrollHeight);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [activeTab]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br flex flex-col items-center justify-center p-4">
@@ -92,11 +121,28 @@ const HomePage: React.FC = () => {
                 </button>
               </div>
 
-              {activeTab === 'join' ? (
-                <JoinGame disabled={isConnecting} />
-              ) : (
-                <CreateGame disabled={false} />
-              )}
+              {/* Content container with height transition */}
+              <div 
+                ref={contentRef} 
+                className="overflow-hidden transition-height duration-300 ease-in-out"
+                style={{ height: contentHeight ? `${contentHeight}px` : 'auto' }}
+              >
+                {/* Hidden div for Join Game content */}
+                <div 
+                  ref={joinRef} 
+                  style={{ display: activeTab === 'join' ? 'block' : 'none' }}
+                >
+                  <JoinGame disabled={isConnecting} />
+                </div>
+                
+                {/* Hidden div for Create Game content */}
+                <div 
+                  ref={createRef} 
+                  style={{ display: activeTab === 'create' ? 'block' : 'none' }}
+                >
+                  <CreateGame disabled={false} />
+                </div>
+              </div>
             </div>
           )}
         </div>
