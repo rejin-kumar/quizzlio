@@ -64,7 +64,7 @@ const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br flex flex-col items-center justify-center p-4">
       <h1 className="text-6xl font-pacifico text-white mb-24">Quizzlio</h1>
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-4xl">
+      <div className="shadow-lg rounded-lg overflow-hidden w-full max-w-4xl" style={{ backgroundColor: 'var(--card-background)' }}>
         <div className="p-6">
           {error && (
             <div className="bg-red-100 border-l-4 border-red-500 p-4 mb-6">
@@ -148,7 +148,7 @@ const HomePage: React.FC = () => {
         </div>
       </div>
       
-      <div className=" p-4 text-center w-full max-w-4xl mt-12 rounded-lg">
+      <div className="p-4 text-center w-full max-w-4xl mt-12 rounded-lg">
         <p className="text-white">
           © {new Date().getFullYear()} Quizzlio - The Multiplayer Trivia Game
         </p>
