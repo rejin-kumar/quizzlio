@@ -100,8 +100,12 @@ export class SocketService {
         this.socket.disconnect();
       }
 
-      // Connect to the server (use environment variable for production)
-      this.socket = io('http://localhost:5000', {
+      // Get socket server URL based on environment
+      const socketUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      console.log('Connecting to socket server at:', socketUrl);
+
+      // Connect to the server
+      this.socket = io(socketUrl, {
         transports: ['websocket', 'polling'],
         autoConnect: true
       });
