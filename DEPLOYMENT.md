@@ -24,7 +24,7 @@ This document outlines the steps to deploy Quizzlio with the backend on Render.c
 
 6. Click "Create Web Service" and wait for the deployment to complete.
 
-7. Once deployed, note the URL (e.g., `https://quizzlio-server.onrender.com`).
+7. Once deployed, note the URL (e.g., `https://quizzlio.onrender.com`).
 
 ## Frontend Deployment on Vercel
 
@@ -40,7 +40,7 @@ This document outlines the steps to deploy Quizzlio with the backend on Render.c
    - **Root Directory**: `/` (leave as default)
 
 5. Set the following environment variables:
-   - `NEXT_PUBLIC_API_URL`: [Your Render.com backend URL, e.g., `https://quizzlio-server.onrender.com`]
+   - `NEXT_PUBLIC_API_URL`: [Your Render.com backend URL, e.g., `https://quizzlio.onrender.com`]
 
 6. Click "Deploy" and wait for the deployment to complete.
 
