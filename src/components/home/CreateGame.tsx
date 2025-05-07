@@ -39,7 +39,8 @@ const CreateGame: React.FC<CreateGameProps> = ({ disabled = false }) => {
         dispatch(setLoadingCategories(true));
         
         try {
-          const response = await axios.get('http://localhost:5000/api/categories');
+          const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+          const response = await axios.get(`${apiUrl}/api/categories`);
           dispatch(setCategories(response.data.trivia_categories));
         } catch (error) {
           console.error('Error fetching categories:', error);
