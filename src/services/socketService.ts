@@ -76,6 +76,15 @@ interface GameErrorPayload {
   message: string;
 }
 
+interface GameSettings {
+  adminName: string;
+  amount: number;
+  category: string;
+  difficulty: string;
+  type: string;
+  timePerQuestion: number;
+}
+
 export class SocketService {
   private static instance: SocketService;
   private socket: Socket | null = null;
@@ -189,7 +198,7 @@ export class SocketService {
   }
 
   // Create a new game
-  createGame(settings: any): void {
+  createGame(settings: GameSettings): void {
     if (!this.socket) return;
     console.log('Creating game with settings:', settings);
     this.socket.emit('create_game', settings);

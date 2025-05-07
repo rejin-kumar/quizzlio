@@ -8,7 +8,7 @@ import socketService from '../../services/socketService';
 const HomePage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'join' | 'create'>('join');
   const [isConnecting, setIsConnecting] = useState(false);
-  const { error, status } = useSelector((state: RootState) => state.game as any);
+  const { error, status } = useSelector((state: RootState) => state.game);
   
   // Refs and state for height animation
   const contentRef = useRef<HTMLDivElement>(null);

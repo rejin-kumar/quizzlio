@@ -167,14 +167,14 @@ const CreateGame: React.FC<CreateGameProps> = ({ disabled = false }) => {
           <Select
             label="Difficulty"
             value={settings.difficulty}
-            onChange={(e) => dispatch(setDifficulty(e.target.value as any))}
+            onChange={(e) => dispatch(setDifficulty(e.target.value as 'any' | 'easy' | 'medium' | 'hard'))}
             options={difficultyOptions}
           />
           
           <Select
             label="Question Type"
             value={settings.type}
-            onChange={(e) => dispatch(setType(e.target.value as any))}
+            onChange={(e) => dispatch(setType(e.target.value as 'any' | 'multiple' | 'boolean'))}
             options={typeOptions}
           />
         </div>

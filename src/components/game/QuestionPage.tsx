@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/store';
 import MainLayout from '../layout/MainLayout';
@@ -14,14 +14,21 @@ const QuestionPage: React.FC = () => {
     timeRemaining, 
     selectedAnswer, 
     hasSubmitted, 
-    players,
-    questionResults 
-  } = useSelector((state: RootState) => state.game as any);
+    players
+  } = useSelector((state: RootState) => state.game);
   const [animateTimer, setAnimateTimer] = useState(false);
   
   // Sort players by scores for the leaderboard
   // Use the most recent player data that includes the updated scores
   const sortedPlayers = [...players].sort((a: Player, b: Player) => b.score - a.score);
+
+  // Define handleSubmitAnswer before it's used in useEffect
+  const handleSubmitAnswer = useCallback(() => {
+    if (hasSubmitted || !gameCode) return;
+    
+    dispatch(submitAnswer());
+    socketService.submitAnswer(gameCode, selectedAnswer || '', timeRemaining);
+  }, [dispatch, gameCode, hasSubmitted, selectedAnswer, timeRemaining]);
 
   // Set up countdown timer
   useEffect(() => {
@@ -54,18 +61,11 @@ const QuestionPage: React.FC = () => {
       // If no answer selected, submit a null answer
       handleSubmitAnswer();
     }
-  }, [timeRemaining, hasSubmitted, gameCode]);
+  }, [timeRemaining, hasSubmitted, gameCode, handleSubmitAnswer]);
 
   const handleAnswerSelect = (answer: string) => {
     if (hasSubmitted) return;
     dispatch(selectAnswer(answer));
-  };
-
-  const handleSubmitAnswer = () => {
-    if (hasSubmitted || !gameCode) return;
-    
-    dispatch(submitAnswer());
-    socketService.submitAnswer(gameCode, selectedAnswer || '', timeRemaining);
   };
 
   if (!currentQuestion) {

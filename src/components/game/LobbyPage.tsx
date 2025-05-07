@@ -8,7 +8,7 @@ import { resetGame, Player } from '../../redux/slices/gameSlice';
 
 const LobbyPage: React.FC = () => {
   const dispatch = useDispatch();
-  const { gameCode, isAdmin, players, error } = useSelector((state: RootState) => state.game as any);
+  const { gameCode, isAdmin, players, error } = useSelector((state: RootState) => state.game);
 
   // Sort players by scores
   const sortedPlayers = [...players].sort((a: Player, b: Player) => b.score - a.score);

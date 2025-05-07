@@ -27,7 +27,6 @@ const GameOver: React.FC = () => {
 
   // Get top 3 players for special highlighting
   const topPlayers = finalLeaderboard.slice(0, 3);
-  const otherPlayers = finalLeaderboard.slice(3);
 
   return (
     <MainLayout>
